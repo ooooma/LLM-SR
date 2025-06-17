@@ -13,7 +13,7 @@ from flask_cors import CORS
 parser = ArgumentParser()
 parser.add_argument('--gpu_ids', nargs='+', default=['0','1','2','3'])
 parser.add_argument('--quantization', default=False, action='store_true')
-parser.add_argument('--model_path', type=str, default='mistralai/Mixtral-8x7B-Instruct-v0.1')
+parser.add_argument('--model_path', type=str, default='/home/omnisky/.omni/models/models--Qwen--Qwen2.5-7B')
 parser.add_argument('--host', type=str, default=None)
 parser.add_argument('--port', type=int, default=None)
 parser.add_argument('--temperature', type=float, default=0.8)
@@ -58,6 +58,7 @@ else:
 
 # load model
 pretrained_model_path = args.model_path
+print("model path: ", pretrained_model_path)
 config = AutoConfig.from_pretrained(
     pretrained_model_name_or_path=pretrained_model_path
     )
